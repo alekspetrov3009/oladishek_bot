@@ -1,7 +1,7 @@
 from aiogram.utils import executor
 from create_bot import dp
 import runpy
-
+from handlers.data_base import sqlite_db
 
 
 
@@ -10,6 +10,7 @@ async def on_startup(_):
     #инфа в консоли
     print('Бот вышел в онлайн')
     runpy.run_module(mod_name='to_json')
+    sqlite_db.sql_start()
 
 from handlers import client, admin, other
 
